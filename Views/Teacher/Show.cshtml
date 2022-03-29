@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Teacher Information";
+}
+
+<h2>Teacher Information</h2>
+<p>Latest database information regarding the selected teacher.</p>
+<!--Add courses taught by selected teacher info-->
+<section>
+    <h4>Search Results</h4>
+    <div>
+        Name: @ViewData["TeacherName"]
+    </div>
+    <div>
+        Hire Date: @ViewData["teacherHireDate"]
+    </div>
+    <div>
+        Salary: @ViewData["teacherSalary"]
+    </div>
+</section>
