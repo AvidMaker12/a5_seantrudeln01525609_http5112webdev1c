@@ -28,14 +28,12 @@ namespace a3_seantrudeln01525609_http5112webdev1c.Models
             }
         }
 
-        /// <summary>
-        /// Returns a connection to the blog database.
-        /// </summary>
+        /// <summary> Returns a connection to the blog database. </summary>
         /// <example>
         /// private SchoolDbContext Teachers = new SchoolDbContext();
         /// MySqlConnection Conn = Teachers.AccessDatabase();
         /// </example>
-        /// <returns>MySqlConnection Object</returns>
+        /// <returns> MySqlConnection Object </returns>
         public MySqlConnection AccessDatabase()
         {
             //MySqlConnection Class instance creates an object

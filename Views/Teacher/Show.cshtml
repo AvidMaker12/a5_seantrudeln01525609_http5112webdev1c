@@ -1,20 +1,43 @@
-﻿
+﻿@model a3_seantrudeln01525609_http5112webdev1c.Models.Teacher
+
 @{
-    ViewBag.Title = "Teacher Information";
+    ViewBag.Title = "Show Teacher Information";
 }
 
-<h2>Teacher Information</h2>
+<h2>Selected Teacher Information</h2>
 <p>Latest database information regarding the selected teacher.</p>
 <!--Add courses taught by selected teacher info-->
 <section>
     <h4>Search Results</h4>
     <div>
-        Name: @ViewData["TeacherName"]
+        First Name: @Model.TeacherFName
     </div>
     <div>
-        Hire Date: @ViewData["teacherHireDate"]
+        Last Name: @Model.TeacherLName
     </div>
     <div>
-        Salary: @ViewData["teacherSalary"]
+        Hire Date: @Model.HireDate
     </div>
+    <div>
+        Salary: @Model.Salary
+    </div>
+    <div>
+        Exmployee Number: @Model.EmployeeNumber
+    </div>
+    <div>
+        Hire Date: @Model.HireDate
+    </div>
+    <div>
+        Salary: @Model.Salary
+    </div>
+    <!--Delete Selected Teacher Info from Database-->
+    <div>
+        <a href="/Teacher/DeleteConfirm/@Model.TeacherId">Delete This Teacher from Database</a>
+    </div>
+
+    <h4>Courses Taught</h4>
+    <div>
+        <!--Add ViewModel code for course info-->
+    </div>
+
 </section>

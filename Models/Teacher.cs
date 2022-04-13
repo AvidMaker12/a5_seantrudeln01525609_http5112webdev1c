@@ -14,6 +14,5 @@ namespace a3_seantrudeln01525609_http5112webdev1c.Models
         public string EmployeeNumber { get; set; }
         public string HireDate { get; set; }
         public string Salary { get; set; }
-
     }
 }
