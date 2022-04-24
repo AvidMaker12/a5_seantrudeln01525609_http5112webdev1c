@@ -1,0 +1,83 @@
+﻿@model a3_seantrudeln01525609_http5112webdev1c.Models.Teacher
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit Teacher</h2>
+
+<form method="POST" action="/Teacher/Update/@Model.TeacherId" name="editTeacherForm">
+    <div>
+        <label>First Name:</label>
+        <input type="text" name="teacherfname" value="@Model.TeacherFName" />
+        <span id="fNameError"></span>
+    </div>
+    <div>
+        <label>Last Name:</label>
+        <input type="text" name="teacherlname" value="@Model.TeacherLName" />
+        <span id="lNameError"></span>
+    </div>
+    <div>
+        <label>Salary Amount:</label>
+        <input type="text" name="salary" value="@Model.Salary" />
+        <span id="salaryError"></span>
+    </div>
+
+    <div>
+        <input type="submit" value="Update Teacher" />
+    </div>
+
+</form>
+
+
+<script>
+    window.onload = function () {
+        //VARIABLES & DOM ELEMENTS
+            //Form DOM elements
+            var formListener = document.forms.editTeacherForm;
+            //Error message variable when First Name input is empty
+            var fNameMsg = document.getElementById("fNameError");
+            //Error message variable when Last Name input is empty
+            var lNameMsg = document.getElementById("lNameError");
+            //Error message variable when Salary input is empty
+            var salaryMsg = document.getElementById("salaryError");
+
+        //FUNCTIONS
+            //Form validation
+            function formProcess() {
+                //DOM form elements variables
+                var teacherfname = formListener.teacherfname;
+                var teacherlname = formListener.teacherlname;
+                var salary = formListener.salary;
+
+                //Teacher First Name Validation
+                if (teacherfname.value === "") {
+                    fNameMsg.style.background = "red";
+                    fNameMsg.style.color = "white";
+                    fNameMsg.innerHTML = "Please enter a first name";	//Error message appears
+                    teacherfname.focus();	//place cursor back into First Name input box
+                    return false;	//Prevent next page load
+                }
+                //Teacher Last Name Validation
+                if (teacherlname.value === "") {
+                    lNameMsg.style.background = "red";
+                    lNameMsg.style.color = "white";
+                    lNameMsg.innerHTML = "Please enter a last name";	//Error message appears
+                    teacherlname.focus();	//place cursor back into Last Name input box
+                    return false;	//Prevent next page load
+                }
+                //Teacher Salary Validation
+                if (salary.value === "") {
+                    salaryMsg.style.background = "red";
+                    salaryMsg.style.color = "white";
+                    salaryMsg.innerHTML = "Please enter a salary";	//Error message appears
+                    salary.focus();	//place cursor back into Salary input box
+                    return false;	//Prevent next page load
+                }
+            }   //End of function formProcess
+
+        //EVENT LISTENERS
+            formListener.onsubmit = formProcess;
+
+    }   //End of onload function
+</script>

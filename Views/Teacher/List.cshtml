@@ -1,0 +1,52 @@
+﻿@model IEnumerable<a3_seantrudeln01525609_http5112webdev1c.Models.Teacher>
+
+@{
+    ViewBag.Title = "Teacher List Database";
+}
+
+<h2>Teachers</h2>
+<p>Select a teacher from this database to see more information.</p>
+<!--Add search bar to find teacher (filters: name, hiredate, salary)-->
+<!--
+<form action="/Teacher/Show" method="POST">
+    <h4>Search Teacher</h4>
+    <div>
+        <label for="teacherFName">First Name: </label><input id="teacherFName" name="teacherFName" />
+    </div>
+    <div>
+        <label for="teacherLName">Last Name: </label><input id="teacherLName" name="teacherLName" />
+    </div>
+    <div>
+        <label for="teacherHireDate">Hire Date: </label><input id="teacherHireDate" name="teacherHireDate" />
+    </div>
+    <div>
+        <label for="teacherSalary">Salary: </label><input type="number" id="teacherSalary" name="teacherSalary" />
+    </div>
+    <div>
+        <input type="submit" value="Search" />
+    </div>
+</form>
+-->
+<h4>Database Summary</h4>
+<div>There is/are currently @Model.Count() teacher(s) registered in the database with the specified search parameter(s).</div>
+<div><a href="/Teacher/New">Add new Teacher</a></div>   <!--Add new Teacher button feature updates/adds info to SchoolDB database.-->
+<div>
+    <form action="/Teacher/List" method="GET">
+        <input type="text" name="SearchKey" placeholder="name" />
+        <input type="submit" value="search" />
+    </form>
+</div>
+
+<div>
+    @{
+        foreach (a3_seantrudeln01525609_http5112webdev1c.Models.Teacher Teacher in Model)
+        {
+            string Url = "/Teacher/Show/" + Teacher.TeacherId;
+        <div>
+            <!--All teacher names on List page are links to Show page, displays specific selected teacher info.-->
+            <!--<a href="/Teacher/Show/aTeacher.TeacherId">aTeacher.TeacherFName aTeacher.TeacherLName</a>-->
+            <a href="@Url">@Teacher.TeacherFName @Teacher.TeacherLName</a>
+        </div>
+        }
+    }
+</div>
